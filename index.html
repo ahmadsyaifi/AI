@@ -26,10 +26,14 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             background-color: var(--bg-light);
             color: #334155;
-            overflow-x: hidden;
             line-height: 1.6;
         }
 
@@ -199,6 +203,10 @@
                 z-index: 1010;
             }
 
+            nav {
+                padding: 0.3rem 1rem;
+            }
+
             nav ul {
                 position: fixed;
                 top: 0;
@@ -229,14 +237,14 @@
         .hero {
             background: linear-gradient(rgba(225, 244, 139, 0.536), rgba(241, 204, 187, 0.398)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 80vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--white);
-            padding: 0 1.5rem;
+            padding: 2rem 1.5rem;
             position: relative;
             animation: fadeIn 1s ease-out;
         }
@@ -263,11 +271,10 @@
         }
 
         .hero h2 {
-    /* font SD & SMP.... */
-    color: #214a3c;
-    font-family: 'Poppins', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif; /* 👈 TAMBAHKAN INI */
-    font-weight: 700;
-}
+            color: #214a3c;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 700;
+        }
 
         .hero p {
             font-size: 1.15rem;
@@ -302,7 +309,7 @@
 
         /* --- GENERAL SECTION FORMATTING --- */
         section {
-            padding: 6rem 2rem;
+            padding: 6rem 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -453,7 +460,7 @@
         /* --- PROGRAM SD & SMP --- */
         .grid-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2.5rem;
         }
 
@@ -512,7 +519,7 @@
         /* --- GALERI & EKSTRAKURIKULER --- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
@@ -604,14 +611,17 @@
         @media (max-width: 968px) {
             .vision-mission-grid { grid-template-columns: 1fr; }
             .slider-container { height: 300px; }
+            .vm-box { padding: 2rem; }
         }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero h2 { font-size: 1.4rem; }
+            .hero p { font-size: 1rem; }
             .section-title { font-size: 2rem; }
-            .whatsapp-float { padding: 1rem; border-radius: 50%; }
+            .whatsapp-float { padding: 1rem; border-radius: 50%; bottom: 20px; right: 20px; }
             .whatsapp-float span { display: none; }
+            .btn { padding: 1rem 2rem; font-size: 1rem; }
         }
     </style>
 </head>
@@ -648,7 +658,7 @@
             <li><a href="#profil">Profil</a></li>
             <li><a href="#program">Program</a></li>
             <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#testi">Brosur</a></li>
+            <li><a href="#brosur">Brosur</a></li>
             <li><a href="#daftar">Daftar</a></li>
         </ul>
     </nav>
@@ -779,8 +789,8 @@
     </section>
 
     <!-- BAGIAN DOWNLOAD BROSUR -->
-    <section id="testi" style="padding: 60px 20px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
-        <div style="max-width: 800px; margin: 0 auto; background-color: var(--white); padding: 40px 30px; border-radius: 20px; box-shadow: var(--shadow); border-top: 5px solid var(--gold);">
+    <section id="brosur" style="padding: 60px 15px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
+        <div style="max-width: 800px; width: 100%; margin: 0 auto; background-color: var(--white); padding: 40px 20px; border-radius: 20px; box-shadow: var(--shadow); border-top: 5px solid var(--gold); box-sizing: border-box;">
             
             <h2 style="color: var(--primary); margin-bottom: 10px; font-size: 26px; font-weight: 700;">
                 Brosur & Informasi Pendaftaran
@@ -789,11 +799,10 @@
                 Dapatkan informasi lebih lengkap mengenai rincian biaya, program tahfidz, kurikulum, serta fasilitas pondok melalui brosur resmi kami.
             </p>
             
-    <!-- TOMBOL DOWNLOAD BROSUR -->
-    <!-- Ganti 'brosur-spmb-2026.pdf' dengan nama file brosur Anda yang sebenarnya -->
+            <!-- TOMBOL DOWNLOAD BROSUR -->
             <a href="images/Brosur2026.pdf" 
                download="Brosur_SPMB_Al_Ishlah_Furqon_2026.pdf" 
-               style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 35px; background: linear-gradient(135deg, var(--gold), #b45309); color: var(--white); text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 50px; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); transition: all 0.3s;">
+               style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 30px; background: linear-gradient(135deg, var(--gold), #b45309); color: var(--white); text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 50px; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); transition: all 0.3s; max-width: 100%; box-sizing: border-box;">
                📥 Download Brosur Resmi (PDF)
             </a>
             
@@ -801,19 +810,19 @@
     </section>
 
     <!-- TESTIMONI WALI MURID -->
-    <section id="testi" style="padding: 60px 20px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
+    <section id="testimoni" style="padding: 60px 15px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
         <div style="max-width: 1000px; margin: 0 auto;">
             <h2 class="section-title">Apa Kata Wali Murid?</h2>
             <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2rem;">
                 
-                <div style="flex: 1; min-width: 280px; max-width: 450px; background-color: var(--white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); text-align: left; border-left: 5px solid var(--primary);">
+                <div style="flex: 1; min-width: 280px; max-width: 450px; background-color: var(--white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); text-align: left; border-left: 5px solid var(--primary); box-sizing: border-box;">
                     <p style="color: #475569; font-style: italic; line-height: 1.6; margin-bottom: 15px;">
                         "Alhamdulillah, sejak anak saya bersekolah di sini, hafalan Al-Qur'an dan kemandiriannya berkembang sangat pesat. Gurunya sabar dan telaten."
                     </p>
                     <h4 style="color: var(--primary); margin: 0; font-size: 16px; font-weight: bold;">- Wali Murid Kelas VII</h4>
                 </div>
 
-                <div style="flex: 1; min-width: 280px; max-width: 450px; background-color: var(--white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); text-align: left; border-left: 5px solid var(--gold);">
+                <div style="flex: 1; min-width: 280px; max-width: 450px; background-color: var(--white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); text-align: left; border-left: 5px solid var(--gold); box-sizing: border-box;">
                     <p style="color: #475569; font-style: italic; line-height: 1.6; margin-bottom: 15px;">
                         "Kombinasi antara kurikulum formal dan program tahfidznya sangat seimbang. Lingkungan sekolah juga sangat mendukung pembentukan akhlak anak."
                     </p>
@@ -825,8 +834,8 @@
     </section>
 
     <!-- BAGIAN PENDAFTARAN -->
-    <section id="daftar" style="padding: 80px 20px; text-align: center; background-color: #f4fbf7;">
-        <div style="max-width: 650px; margin: 0 auto; background: var(--white); padding: 45px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(6, 78, 59, 0.08); border: 1px solid #e0f2f1;">
+    <section id="daftar" style="padding: 80px 15px; text-align: center; background-color: #f4fbf7;">
+        <div style="max-width: 650px; width: 100%; margin: 0 auto; background: var(--white); padding: 45px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(6, 78, 59, 0.08); border: 1px solid #e0f2f1; box-sizing: border-box;">
             
             <h2 style="color: var(--primary); margin-bottom: 15px; font-size: 28px; font-weight: 700; letter-spacing: 0.5px;">
                 Pendaftaran Siswa Baru
@@ -838,9 +847,9 @@
                 Silakan klik tombol di bawah ini:
             </p>
             
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScarLFX-wLMOQs73Qx9bNvQrijN78X9Uw4MFtsADqaL_73HVA/formResponse" 
-               target="_self" 
-               style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 50px; box-shadow: 0 6px 20px rgba(6, 78, 59, 0.25); transition: transform 0.2s;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScarLFX-wLMOQs73Qx9bNvQrijN78X9Uw4MFtsADqaL_73HVA/viewform" 
+               target="_blank" 
+               style="display: inline-block; padding: 16px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 50px; box-shadow: 0 6px 20px rgba(6, 78, 59, 0.25); transition: transform 0.2s; max-width: 100%; box-sizing: border-box;">
                👉 Buka Formulir Pendaftaran 👈
             </a>
             
@@ -852,13 +861,13 @@
     </section>
 
     <!-- GOOGLE MAPS SECTION -->
-    <section style="padding: 2rem 2rem;">
+    <section style="padding: 2rem 1.5rem;">
         <h3 style="color: var(--primary); font-weight: bold; text-align: center; margin-bottom: 1rem;">Lokasi Pesantren</h3>
         <div class="maps-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.66465439589!2d110.6387474!3d-6.8984766!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70ebe9bd8c1b01%3A0x805bc0d5180ada22!2sPPTA%20Al%20ishlah%20Furqon!5e0!3m2!1sid!2sid!4v1719943500000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <p style="text-align: left; font-size: 11px; color: #64748b; margin-top: 10px; font-style: italic;">
-            Alamat : Jl. Kyai Turmudzi No.10, Sempalwadak, Bintoro, Kec. Demak, Kabupaten Demak, Jawa Tengah 59511 kontak : 085338797456
+            Alamat : Jl. Kyai Turmudzi No.10, Sempalwadak, Bintoro, Kec. Demak, Kabupaten Demak, Jawa Tengah 59511 | Kontak : 085338797456
         </p>
     </section>
 
@@ -870,7 +879,7 @@
 
     <!-- FOOTER MINIMALIS -->
     <footer style="background-color: #00332c; color: #ffffff; padding: 20px 10px; text-align: center; font-size: 14px; border-top: 3px solid var(--gold);">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 10px;">
             <p style="margin: 5px 0; color: #e0f2f1;">
                 &copy; 2026 <strong>PPTA Al Ishlah Furqon Demak</strong>. All Rights Reserved.
             </p>
