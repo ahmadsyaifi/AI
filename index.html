@@ -263,11 +263,10 @@
         }
 
         .hero h2 {
-    /* font SD & SMP.... */
-    color: #214a3c;
-    font-family: 'Poppins', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif; /* 👈 TAMBAHKAN INI */
-    font-weight: 700;
-}
+            color: #214a3c;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 700;
+        }
 
         .hero p {
             font-size: 1.15rem;
@@ -636,8 +635,8 @@ body{overscroll-behavior-x:none}
   .slider-container{height:260px!important}
   footer div{flex-direction:column!important;gap:.75rem}
 }
-#menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.3s;z-index:1001}
-#menu-overlay.show{opacity:1;pointer-events:auto}
+#menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.3s;z-index:1000}
+#menu-overlay.show{opacity:1;pointer-events:auto;backdrop-filter:blur(2px)}
 #scroll-progress{position:fixed;top:0;left:0;height:4px;background:#d97706;width:0;z-index:2000}
 #backTop{position:fixed;right:18px;bottom:110px;width:46px;height:46px;border:none;border-radius:50%;background:#064e3b;color:#fff;display:none;z-index:9999;font-size:20px;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.18)}
 .whatsapp-float{bottom:32px!important;right:18px!important}
@@ -646,8 +645,6 @@ body{overscroll-behavior-x:none}
 </head>
 <body>
 <div id="scroll-progress"></div>
-<div id="menu-overlay"></div>
-<button id="backTop" aria-label="Kembali ke atas">↑</button>
 
     <!-- TOP BAR JAM, HARI, TANGGAL -->
     <div class="top-bar">
@@ -658,6 +655,7 @@ body{overscroll-behavior-x:none}
 
     <!-- NAVIGASI UTAMA + HAMBURGER MENU -->
     <nav>
+        <div id="menu-overlay"></div>
         <div class="logo-container">
             <a href="#profil">
                 <img src="logo.png" alt="Logo PPTA Al Ishlah Furqon" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2942/2942921.png'">
@@ -821,8 +819,7 @@ body{overscroll-behavior-x:none}
                 Dapatkan informasi lebih lengkap mengenai rincian biaya, program tahfidz, kurikulum, serta fasilitas pondok melalui brosur resmi kami.
             </p>
             
-    <!-- TOMBOL DOWNLOAD BROSUR -->
-    <!-- Ganti 'brosur-spmb-2026.pdf' dengan nama file brosur Anda yang sebenarnya -->
+            <!-- TOMBOL DOWNLOAD BROSUR -->
             <a href="brosur-spmb-2026.pdf" 
                download="Brosur_SPMB_Al_Ishlah_Furqon_2026.pdf" 
                style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 35px; background: linear-gradient(135deg, var(--gold), #b45309); color: var(--white); text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 50px; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); transition: all 0.3s;">
@@ -901,6 +898,7 @@ body{overscroll-behavior-x:none}
     </a>
 
     <!-- FOOTER MINIMALIS -->
+    <button id="backTop" aria-label="Kembali ke atas">↑</button>
     <footer style="background-color: #00332c; color: #ffffff; padding: 20px 10px; text-align: center; font-size: 14px; border-top: 3px solid var(--gold);">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 20px;">
             <p style="margin: 5px 0; color: #e0f2f1;">
