@@ -33,12 +33,36 @@
             line-height: 1.6;
         }
 
-        /* --- MODERN NAVIGATION --- */
+        /* --- TOP BAR JAM & TANGGAL REAL-TIME --- */
+        .top-bar {
+            background-color: #043e2f; 
+            color: var(--white);
+            padding: 0.2rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar-content::before {
+            content: "📅 ";
+        }
+
+        /* --- MODERN NAVIGATION WITH HAMBURGER MENU --- */
         nav {
             background: rgba(6, 78, 59, 0.98);
             border-bottom: 3px solid var(--gold);
             color: var(--white);
-            padding: 0.8rem 2rem;
+            padding: 0.3rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,9 +77,9 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            z-index: 1002;
         }
 
-        /* Navigasi Logo Mengarah ke Halaman Tersembunyi */
         nav .logo-container a {
             display: inline-block;
             transition: var(--transition);
@@ -65,12 +89,12 @@
             transform: scale(1.05);
         }
 
-        /* Tempat Logo Mudah Diganti (images/logo.png) */
         nav .logo-container img {
-            height: 55px;
+            height: 40px;
             width: auto;
             object-fit: contain;
             cursor: pointer;
+            margin-top: 4px;
         }
 
         nav .logo-text {
@@ -96,6 +120,7 @@
             display: flex;
             list-style: none;
             gap: 1.8rem;
+            transition: all 0.4s ease;
         }
 
         nav a {
@@ -127,9 +152,82 @@
             color: var(--gold-light);
         }
 
+        /* Tombol Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1002;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--white);
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        /* Animasi Hamburger ke 'X' */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--gold-light);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--gold-light);
+        }
+
+        /* RESPONSIVE DISPLAY (HP & TABLET) */
+        @media (max-width: 968px) {
+            .top-bar {
+                justify-content: center;
+                padding: 0.5rem 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1010;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%; 
+                width: 280px;
+                height: 100vh;
+                background: #043e2f;
+                border-left: 3px solid var(--gold);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                padding-top: 5px;
+                z-index: 1005;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+            }
+
+            nav ul.active {
+                right: 0; 
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+            }
+        }
+
         /* --- BANNER SPMB / HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(6, 78, 59, 0.82), rgba(15, 23, 42, 0.75)), 
+            background: linear-gradient(rgba(225, 244, 139, 0.536), rgba(241, 204, 187, 0.398)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
             height: 80vh;
             display: flex;
@@ -152,30 +250,31 @@
             font-size: 0.9rem;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+            box-shadow: 0 4px 15px rgba(75, 42, 5, 0.4);
             border: 1px solid var(--gold-light);
         }
 
         .hero h1 {
             font-size: 3.2rem;
             margin-bottom: 1rem;
-            color: var(--gold-light);
+            color: var(--dark);
             text-shadow: 0 4px 12px rgba(0,0,0,0.4);
             font-weight: 800;
         }
 
         .hero h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            color: #f1f5f9;
-        }
+    /* font SD & SMP.... */
+    color: #214a3c;
+    font-family: 'Poppins', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif; /* 👈 TAMBAHKAN INI */
+    font-weight: 700;
+}
 
         .hero p {
             font-size: 1.15rem;
             margin-bottom: 2.5rem;
             max-width: 800px;
-            color: #e2e8f0;
+            color: #214a3c;
+            font-weight: 700;
         }
 
         .btn {
@@ -284,6 +383,9 @@
             margin-bottom: 1.5rem;
             text-align: justify;
             color: #475569;
+            font-style: italic;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            scroll-behavior: smooth;
         }
 
         .vision-mission-grid {
@@ -471,7 +573,7 @@
         /* --- FLOATING WHATSAPP BUTTON --- */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
+            bottom: 55px;
             right: 30px;
             background-color: #25d366;
             color: white;
@@ -505,7 +607,6 @@
         }
 
         @media (max-width: 768px) {
-            nav ul { display: none; }
             .hero h1 { font-size: 2.2rem; }
             .hero h2 { font-size: 1.4rem; }
             .section-title { font-size: 2rem; }
@@ -513,27 +614,73 @@
             .whatsapp-float span { display: none; }
         }
     </style>
+
+<style id="premium-patch">
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+*,*:before,*:after{box-sizing:border-box}
+img,iframe,svg{max-width:100%;height:auto}
+body{overscroll-behavior-x:none}
+@media (max-width:968px){
+  nav{padding:.6rem 1rem}
+  nav ul{right:-320px!important;width:min(82vw,320px)!important;overflow-y:auto}
+  nav ul.active{right:0!important}
+  .logo-text .school-name{font-size:1rem}
+  .logo-text .foundation-name{font-size:.65rem}
+}
+@media (max-width:768px){
+  section{padding:4rem 1rem!important}
+  .hero{min-height:85svh;height:auto;padding:6rem 1rem}
+  .hero h1{font-size:2rem}
+  .hero p{font-size:1rem}
+  .grid-cards,.gallery-grid{grid-template-columns:1fr!important}
+  .slider-container{height:260px!important}
+  footer div{flex-direction:column!important;gap:.75rem}
+}
+#menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.3s;z-index:1001}
+#menu-overlay.show{opacity:1;pointer-events:auto}
+#scroll-progress{position:fixed;top:0;left:0;height:4px;background:#d97706;width:0;z-index:2000}
+#backTop{position:fixed;right:18px;bottom:110px;width:46px;height:46px;border:none;border-radius:50%;background:#064e3b;color:#fff;display:none;z-index:9999;font-size:20px;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.whatsapp-float{bottom:32px!important;right:18px!important}
+</style>
+
 </head>
 <body>
+<div id="scroll-progress"></div>
+<div id="menu-overlay"></div>
+<button id="backTop" aria-label="Kembali ke atas">↑</button>
 
-    <!-- NAVIGASI UTAMA -->
+    <!-- TOP BAR JAM, HARI, TANGGAL -->
+    <div class="top-bar">
+        <div class="top-bar-content" id="datetime-display">
+            Memuat waktu...
+        </div>
+    </div>
+
+    <!-- NAVIGASI UTAMA + HAMBURGER MENU -->
     <nav>
         <div class="logo-container">
-            <!-- Logo yang jika diklik mengarah ke halaman rahasia -->
-            <a href="menu-rahasia.html">
+            <a href="#profil">
                 <img src="logo.png" alt="Logo PPTA Al Ishlah Furqon" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2942/2942921.png'">
             </a>
             <div class="logo-text">
-                <span class="school-name">PPTA AL ISHLAH FLURQON</span>
+                <span class="school-name">AL ISHLAH FURQON</span>
                 <span class="foundation-name">Yayasan PPTA Al Ishlah Furqon Demak</span>
             </div>
         </div>
-        <ul>
+
+        <!-- Tombol Garis Tiga Hamburger -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Buka Navigasi">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul id="nav-list">
             <li><a href="#home">Home</a></li>
             <li><a href="#profil">Profil</a></li>
             <li><a href="#program">Program</a></li>
             <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#testi">Testimoni</a></li>
+            <li><a href="#brosur">Brosur</a></li>
             <li><a href="#daftar">Daftar</a></li>
         </ul>
     </nav>
@@ -543,7 +690,7 @@
         <div class="badge-ppdb">SPMB TAHUN AJARAN 2026/2027</div>
         <h1>Mencetak Generasi Qur'ani & Berwawasan Global</h1>
         <h2>SD & SMP Tahfidz Al Ishlah Furqon</h2>
-        <p>Mari bergabung bersama lembaga pendidikan Islam terpadu komprehensif yang mengedepankan Al-Qur'an, As-Sunnah, serta sanad keilmuan guru yang bersambung langsung kepada para masyayikh yang masyhur.</p>
+        <p>Bergabunglah bersama kami untuk melahirkan generasi emas yang berkarakter Qur'ani, disiplin, mandiri, dan berwawasan global berlandaskan akhlaqul karimah.</p>
         <a href="#daftar" class="btn">Daftar Sekarang Secara Online ➔</a>
     </header>
 
@@ -577,7 +724,7 @@
         </div>
 
         <div class="about-text">
-            <p><strong>PPTA Al Ishlah Furqon Demak</strong> merupakan lembaga pendidikan Islam yang berada di bawah naungan Yayasan PPTA Al Ishlah Furqon, beralamat di Jl. Kyai Turmudzi No.10, Sempalwadak, Bintoro, Demak. Dengan mengedepankan nilai-nilai Al-Qur'an dan As-Sunnah serta bimbingan para guru yang memiliki sanad keilmuan yang bersambung kepada para masyayikh yang telah dikenal luas, PPTA Al Ishlah Furqon berkomitmen mencetak generasi muslim yang berilmu, berakhlak mulia, berprestasi, dan berkontribusi bagi agama, bangsa, dan masyarakat.</p>
+            <p><strong>PPTA Al Ishlah Furqon Demak</strong> merupakan lembaga pendidikan Islam yang berada di bawah naungan Yayasan PPTA Al Ishlah Furqon, beralamat di Jl. Kyai Turmudzi No.10, Sempalwadak, Bintoro, Demak. Dengan mengedepankan nilai-nilai Al Qur'an dan As Sunnah serta bimbingan para guru yang memiliki sanad keilmuan yang bersambung kepada para masyayikh yang telah dikenal luas, PPTA Al Ishlah Furqon berkomitmen mencetak generasi muslim yang berilmu, berakhlak mulia, berprestasi, dan berkontribusi bagi agama, bangsa, dan masyarakat.</p>
         </div>
 
         <!-- VISI & MISI -->
@@ -587,10 +734,10 @@
                 <p>"Mewujudkan generasi Qur’ani yang berakhlakul karimah, unggul, berprestasi, dan berwawasan global."</p>
             </div>
             <div class="vm-box">
-                <h3>Misi Utama & Pembiasaan</h3>
+                <h3>Misi Sekolah</h3>
                 <ul class="mission-list">
                     <li>Menyelenggarakan program Tahfidz dan pembentukan karakter islami.</li>
-                    <li>Membiasakan ibadah harian: Shalat jamaah, tilawah, dzikir, doa, dan halaqah.</li>
+                    <li>Membiasakan ibadah harian: Shalat jamaah, tilawah, dzikir, doa, dan halaqah tahfidz.</li>
                     <li>Menerapkan kedisiplinan konsisten demi membentuk pribadi berintegritas dan amanah.</li>
                 </ul>
             </div>
@@ -599,41 +746,41 @@
 
     <!-- PROGRAM SEKOLAH -->
     <section id="program" style="background-color: rgba(6, 78, 59, 0.02);">
-        <h2 class="section-title">Program Pendidikan & Kurikulum</h2>
+        <h2 class="section-title">Program Pendidikan</h2>
         <div class="grid-cards">
             <div class="card">
                 <div class="card-header">
-                    <h3>Jenjang SD Tahfidz</h3>
+                    <h3>SD Reguler</h3>
                 </div>
                 <div class="card-body">
                     <ul>
                         <li>Pendidikan Dasar Berbasis Akhlak</li>
-                        <li>Target Hafalan Juz Amma & Juz Pilihan</li>
-                        <li>Pembiasaan Adab Islami Sehari-hari</li>
+                        <li>Bimbingan membaca dan menghafal Al Qur'an tingkat dasar</li>
+                        <li>Bimbingan dan pengenalan ibadah harian</li>
                     </ul>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h3>Jenjang SMP Tahfidz</h3>
+                    <h3>SD Fullday</h3>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li>Integrasi Kurikulum Umum & Diniyyah</li>
-                        <li>Akselerasi Tahfidzul Qur'an Intensif</li>
-                        <li>Kemandirian Pesantren & Organisasi</li>
+                        <li>Sekolah dasar yang terintegrasi Kurikulum Nasional & Diniyyah</li>
+                        <li>Bimbingan Tahfidz Al Qur'an dan Ibadah (TPQ)</li>
+                        <li>Pembiasaan Ibadah Harian dan kemandirian</li>
                     </ul>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h3>Kurikulum Karakter Khas</h3>
+                    <h3>Pesantren (Boarding)</h3>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li><strong>Tahsin & Murojaah:</strong> Koreksi dengan teliti</li>
-                        <li><strong>Pembiasaan Ibadah:</strong> Puasa sunnah & dzikir</li>
-                        <li><strong>Adab Ulama:</strong> Menghormati guru & orang tua</li>
+                        <li>Sekolah dasar dan menengah (SD & SMP) yang terintegrasi Kurikulum Nasional & Diniyyah</li>
+                        <li>Bimbingan Tahfidz Al Qur'an dan Ibadah (TPQ) secara intensif</li>
+                        <li>Pembiasaan Ibadah Harian, kemandirian dan pengawasan murobbi pembimbing </li>
                     </ul>
                 </div>
             </div>
@@ -663,8 +810,30 @@
         </div>
     </section>
 
-    <!-- TESTIMONI WALI MURID (DIPERBAIKI) -->
-    <section id="testi" style="padding: 60px 20px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
+    <!-- BAGIAN DOWNLOAD BROSUR -->
+    <section id="brosur" style="padding: 60px 20px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
+        <div style="max-width: 800px; margin: 0 auto; background-color: var(--white); padding: 40px 30px; border-radius: 20px; box-shadow: var(--shadow); border-top: 5px solid var(--gold);">
+            
+            <h2 style="color: var(--primary); margin-bottom: 10px; font-size: 26px; font-weight: 700;">
+                Brosur & Informasi Pendaftaran
+            </h2>
+            <p style="color: #64748b; font-size: 1.05rem; margin-bottom: 25px;">
+                Dapatkan informasi lebih lengkap mengenai rincian biaya, program tahfidz, kurikulum, serta fasilitas pondok melalui brosur resmi kami.
+            </p>
+            
+    <!-- TOMBOL DOWNLOAD BROSUR -->
+    <!-- Ganti 'brosur-spmb-2026.pdf' dengan nama file brosur Anda yang sebenarnya -->
+            <a href="brosur-spmb-2026.pdf" 
+               download="Brosur_SPMB_Al_Ishlah_Furqon_2026.pdf" 
+               style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 35px; background: linear-gradient(135deg, var(--gold), #b45309); color: var(--white); text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 50px; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); transition: all 0.3s;">
+               📥 Download Brosur Resmi (PDF)
+            </a>
+            
+        </div>
+    </section>
+
+    <!-- TESTIMONI WALI MURID -->
+    <section id="testimoni" style="padding: 60px 20px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
         <div style="max-width: 1000px; margin: 0 auto;">
             <h2 class="section-title">Apa Kata Wali Murid?</h2>
             <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2rem;">
@@ -687,7 +856,7 @@
         </div>
     </section>
 
-    <!-- BAGIAN PENDAFTARAN (SATU KLIK KE GOOGLE FORM) -->
+    <!-- BAGIAN PENDAFTARAN -->
     <section id="daftar" style="padding: 80px 20px; text-align: center; background-color: #f4fbf7;">
         <div style="max-width: 650px; margin: 0 auto; background: var(--white); padding: 45px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(6, 78, 59, 0.08); border: 1px solid #e0f2f1;">
             
@@ -701,15 +870,14 @@
                 Silakan klik tombol di bawah ini:
             </p>
             
-            <!-- Tombol Klik Menuju Formulir Pendaftaran Anda -->
-            <a href="https://docs.google.com/forms/d/1UfExu6_u0Ix2j2TJ_AfL0f4BRgtXRZBEECmmeOyWHn8/edit?usp=drive_web&ouid=117119487557524044958" 
-               target="_blank" 
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScarLFX-wLMOQs73Qx9bNvQrijN78X9Uw4MFtsADqaL_73HVA/formResponse" 
+               target="_self" 
                style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 50px; box-shadow: 0 6px 20px rgba(6, 78, 59, 0.25); transition: transform 0.2s;">
                👉 Buka Formulir Pendaftaran 👈
             </a>
             
             <span style="display: block; margin-top: 15px; color: #888888; font-size: 13px; font-style: italic;">
-                *Catatan: Link pendaftaran akan terbuka otomatis di tab baru browser Anda.
+                *Catatan: anda akan diarahkan ke lembar formulir pendaftaran online.
             </span>
             
         </div>
@@ -717,48 +885,109 @@
 
     <!-- GOOGLE MAPS SECTION -->
     <section style="padding: 2rem 2rem;">
-    <h3 style="color: var(--primary); font-weight: bold; text-align: center; margin-bottom: 1rem;">Lokasi Pesantren</h3>
-    <div class="maps-container">
-        <!-- Embed Map Resmi PPTA Al Ishlah Furqon Demak -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.66465439589!2d110.6387474!3d-6.8984766!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70ebe9bd8c1b01%3A0x805bc0d5180ada22!2sPPTA%20Al%20ishlah%20Furqon!5e0!3m2!1sid!2sid!4v1719943500000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-</section>
+        <h3 style="color: var(--primary); font-weight: bold; text-align: center; margin-bottom: 1rem;">Lokasi Pesantren</h3>
+        <div class="maps-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.66465439589!2d110.6387474!3d-6.8984766!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70ebe9bd8c1b01%3A0x805bc0d5180ada22!2sPPTA%20Al%20ishlah%20Furqon!5e0!3m2!1sid!2sid!4v1719943500000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p style="text-align: left; font-size: 11px; color: #64748b; margin-top: 10px; font-style: italic;">
+            Alamat : Jl. Kyai Turmudzi No.10, Sempalwadak, Bintoro, Kec. Demak, Kabupaten Demak, Jawa Tengah 59511 kontak : 085338797456
+        </p>
+    </section>
 
-    <!-- FLOATING WHATSAPP BUTTON (085876801777) -->
-    <a href="https://wa.me/6285876801777?text=Assalamu%27alaikum%20Panitia%20SPMB%20Al%20Ishlah%20Furqon" class="whatsapp-float" target="_blank">
+    <!-- FLOATING WHATSAPP BUTTON (085338797456) -->
+    <a href="https://wa.me/6285338797456?text=Assalamu%27alaikum%20Panitia%20SPMB%20Al%20Ishlah%20Furqon" class="whatsapp-float" target="_blank">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.316 1.592 5.43 0 9.849-4.417 9.851-9.849.002-2.63-1.023-5.101-2.883-6.963-1.86-1.862-4.331-2.887-6.962-2.888-5.434 0-9.852 4.417-9.855 9.849-.001 2.055.553 3.619 1.567 5.253l-.994 3.634 3.76-.986zm11.367-7.64c-.301-.15-1.781-.879-2.056-.979-.275-.1-.475-.149-.674.15-.199.299-.772.979-.947 1.178-.175.199-.35.224-.651.075-.3-.15-1.266-.467-2.41-1.488-.89-.794-1.49-1.775-1.665-2.075-.175-.299-.019-.462.13-.611.135-.134.301-.35.451-.524.149-.175.199-.299.299-.499.1-.2.05-.374-.025-.524-.075-.15-.674-1.622-.923-2.22-.242-.583-.487-.504-.674-.514-.174-.009-.374-.01-.573-.01-.199 0-.523.074-.797.374-.275.299-1.047 1.022-1.047 2.494 0 1.472 1.071 2.892 1.221 3.092.15.199 2.109 3.22 5.108 4.512.714.308 1.272.492 1.707.63.717.228 1.37.196 1.885.119.574-.085 1.781-.728 2.03-1.429.25-.7.25-1.3.175-1.429-.075-.13-.275-.2-.575-.35z"/></svg>
         <span>Hubungi Kami</span>
     </a>
 
-    <!-- FOOTER MINIMALIS SIMPEL & TIPIS -->
+    <!-- FOOTER MINIMALIS -->
     <footer style="background-color: #00332c; color: #ffffff; padding: 20px 10px; text-align: center; font-size: 14px; border-top: 3px solid var(--gold);">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 20px;">
-            
             <p style="margin: 5px 0; color: #e0f2f1;">
                 &copy; 2026 <strong>PPTA Al Ishlah Furqon Demak</strong>. All Rights Reserved.
             </p>
-            
             <div style="margin: 5px 0;">
                 <a href="#home" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Home</a> | 
                 <a href="#profil" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Profil</a> | 
                 <a href="#program" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Program</a> | 
                 <a href="#daftar" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Daftar</a>
             </div>
-
         </div>
     </footer>
 
-    <!-- LOGIC JAVASCRIPT SLIDER AUTOMATIC -->
+    <!-- INTERAKSI JAVASCRIPT SLIDER + HAMBURGER -->
     <script>
+        // Driver Jam, Hari, dan Tanggal Real-time (Bahasa Indonesia)
+        function updateDateTime() {
+            const now = new Date();
+            const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            
+            const dayName = days[now.getDay()];
+            const dayOfMonth = now.getDate();
+            const monthName = months[now.getMonth()];
+            const year = now.getFullYear();
+            
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const dateTimeString = `${dayName}, ${dayOfMonth} ${monthName} ${year} | Waktu: ${hours}:${minutes}:${seconds}`;
+            document.getElementById('datetime-display').innerHTML = dateTimeString;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // Slider Foto Otomatis
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-
         function nextSlide() {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-        setInterval(nextSlide, 4000); // Otomatis bergeser setiap 4 detik
+        setInterval(nextSlide, 4000);
+
+        // Driver Hamburger Menu Garis Tiga (Aktif Sempurna)
+        document.addEventListener("DOMContentLoaded", function() {
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const navList = document.getElementById('nav-list');
+            const navLinks = document.querySelectorAll('#nav-list a');
+
+            hamburgerBtn.addEventListener('click', function() {
+                hamburgerBtn.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburgerBtn.classList.remove('active');
+                    navList.classList.remove('active');
+                });
+            });
+        });
     </script>
+
+<script>
+(function(){
+const overlay=document.getElementById('menu-overlay');
+const back=document.getElementById('backTop');
+const hamburger=document.getElementById('hamburger-btn');
+const nav=document.getElementById('nav-list');
+function closeMenu(){hamburger.classList.remove('active');nav.classList.remove('active');overlay.classList.remove('show');document.body.style.overflow='';}
+if(hamburger){hamburger.addEventListener('click',()=>{const open=nav.classList.contains('active');overlay.classList.toggle('show',!open);document.body.style.overflow=open?'':'hidden';});}
+overlay.addEventListener('click',closeMenu);
+document.querySelectorAll('#nav-list a').forEach(a=>a.addEventListener('click',closeMenu));
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('scroll-progress').style.width=p+'%';
+  back.style.display=window.scrollY>400?'block':'none';
+},{passive:true});
+back.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+</script>
+
 </body>
 </html>
