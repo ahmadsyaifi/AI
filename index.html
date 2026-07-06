@@ -968,22 +968,107 @@ body{overscroll-behavior-x:none}
     </script>
 
 <script>
-(function(){
-const overlay=document.getElementById('menu-overlay');
-const back=document.getElementById('backTop');
-const hamburger=document.getElementById('hamburger-btn');
-const nav=document.getElementById('nav-list');
-function closeMenu(){hamburger.classList.remove('active');nav.classList.remove('active');overlay.classList.remove('show');document.body.style.overflow='';}
-if(hamburger){hamburger.addEventListener('click',()=>{const open=nav.classList.contains('active');overlay.classList.toggle('show',!open);document.body.style.overflow=open?'':'hidden';});}
-overlay.addEventListener('click',closeMenu);
-document.querySelectorAll('#nav-list a').forEach(a=>a.addEventListener('click',closeMenu));
-window.addEventListener('scroll',()=>{
-  const h=document.documentElement;
-  const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('scroll-progress').style.width=p+'%';
-  back.style.display=window.scrollY>400?'block':'none';
+(function () {
+
+const back = document.getElementById("backTop");
+const hamburger = document.getElementById("hamburger-btn");
+const nav = document.getElementById("nav-list");
+
+function openMenu(){
+    hamburger.classList.add("active");
+    nav.classList.add("active");
+    document.body.style.overflow="hidden";
+}
+
+function closeMenu(){
+    hamburger.classList.remove("active");
+    nav.classList.remove("active");
+    document.body.style.overflow="";
+}
+
+hamburger.addEventListener("click",function(e){
+
+    e.stopPropagation();
+
+    if(nav.classList.contains("active")){
+        closeMenu();
+    }else{
+        openMenu();
+    }
+
+});
+
+document.querySelectorAll("#nav-list a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        closeMenu();
+
+    });
+
+});
+
+document.addEventListener("click",function(e){
+
+    if(
+        nav.classList.contains("active") &&
+        !nav.contains(e.target) &&
+        !hamburger.contains(e.target)
+    ){
+        closeMenu();
+    }
+
+});
+
+let startX=0;
+
+document.addEventListener("touchstart",function(e){
+
+    startX=e.touches[0].clientX;
+
 },{passive:true});
-back.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+document.addEventListener("touchend",function(e){
+
+    let endX=e.changedTouches[0].clientX;
+
+    if(nav.classList.contains("active") && endX-startX>80){
+
+        closeMenu();
+
+    }
+
+},{passive:true});
+
+window.addEventListener("scroll",function(){
+
+    const h=document.documentElement;
+
+    const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+
+    document.getElementById("scroll-progress").style.width=p+"%";
+
+    if(window.scrollY>400){
+
+        back.style.display="block";
+
+    }else{
+
+        back.style.display="none";
+
+    }
+
+},{passive:true});
+
+back.addEventListener("click",function(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
 })();
 </script>
 
