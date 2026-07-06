@@ -7,12 +7,12 @@
     <style>
         /* --- DESIGN SYSTEM & PREMIUM COLOR PALETTE --- */
         :root {
-            --primary: #064e3b;       /* Hijau Islami Tua (Deep Emerald) */
-            --primary-light: #0d9488; /* Hijau Toska Aksen */
-            --gold: #d97706;          /* Emas Premium (Amber Gold) */
-            --gold-light: #fef08a;    /* Emas Muda Terang */
-            --bg-light: #f0fdf4;      /* Background Bersih Ringan */
-            --dark: #0f172a;          /* Teks Kontras */
+            --primary: #064e3b;       
+            --primary-light: #0d9488; 
+            --gold: #d97706;          
+            --gold-light: #fef08a;    
+            --bg-light: #f0fdf4;      
+            --dark: #0f172a;          
             --white: #ffffff;
             --shadow: 0 10px 30px rgba(6, 78, 59, 0.08);
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -37,7 +37,7 @@
             line-height: 1.6;
         }
 
-        /* --- TOP BAR JAM & TANGGAL REAL-TIME --- */
+        /* --- TOP BAR --- */
         .top-bar {
             background-color: #043e2f; 
             color: var(--white);
@@ -57,11 +57,9 @@
             gap: 8px;
         }
 
-        .top-bar-content::before {
-            content: "📅 ";
-        }
+        .top-bar-content::before { content: "📅 "; }
 
-        /* --- MODERN NAVIGATION WITH HAMBURGER MENU --- */
+        /* --- NAVIGATION --- */
         nav {
             background: rgba(6, 78, 59, 0.98);
             border-bottom: 3px solid var(--gold);
@@ -89,43 +87,12 @@
             transition: var(--transition);
         }
         
-        nav .logo-container a:hover {
-            transform: scale(1.05);
-        }
-
-        nav .logo-container img {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-            cursor: pointer;
-            margin-top: 4px;
-        }
-
-        nav .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        nav .school-name {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--gold-light);
-            letter-spacing: 0.5px;
-        }
-
-        nav .foundation-name {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #cbd5e1;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.8rem;
-            transition: all 0.4s ease;
-        }
+        nav .logo-container a:hover { transform: scale(1.05); }
+        nav .logo-container img { height: 40px; width: auto; object-fit: contain; margin-top: 4px; }
+        nav .logo-text { display: flex; flex-direction: column; }
+        nav .school-name { font-size: 1.15rem; font-weight: 800; color: var(--gold-light); letter-spacing: 0.5px; }
+        nav .foundation-name { font-size: 0.75rem; font-weight: 500; color: #cbd5e1; text-transform: uppercase; }
+        nav ul { display: flex; list-style: none; gap: 1.8rem; transition: all 0.4s ease; }
 
         nav a {
             color: var(--white);
@@ -148,15 +115,9 @@
             transition: var(--transition);
         }
 
-        nav ul a:hover::after {
-            width: 100%;
-        }
+        nav ul a:hover::after { width: 100%; }
+        nav ul a:hover { color: var(--gold-light); }
 
-        nav ul a:hover {
-            color: var(--gold-light);
-        }
-
-        /* Tombol Hamburger */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -177,63 +138,11 @@
             transition: all 0.4s ease;
         }
 
-        /* Animasi Hamburger ke 'X' */
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-            background-color: var(--gold-light);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-            background-color: var(--gold-light);
-        }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--gold-light); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--gold-light); }
 
-        /* RESPONSIVE DISPLAY (HP & TABLET) */
-        @media (max-width: 968px) {
-            .top-bar {
-                justify-content: center;
-                padding: 0.5rem 1rem;
-            }
-
-            .hamburger {
-                display: flex;
-                position: relative;
-                z-index: 1010;
-            }
-
-            nav {
-                padding: 0.3rem 1rem;
-            }
-
-            nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%; 
-                width: 280px;
-                height: 100vh;
-                background: #043e2f;
-                border-left: 3px solid var(--gold);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                padding-top: 5px;
-                z-index: 1005;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-            }
-
-            nav ul.active {
-                right: 0; 
-            }
-
-            nav ul li a {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* --- BANNER SPMB / HERO SECTION --- */
+        /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(rgba(225, 244, 139, 0.536), rgba(241, 204, 187, 0.398)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
@@ -262,27 +171,9 @@
             border: 1px solid var(--gold-light);
         }
 
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            font-weight: 800;
-        }
-
-        .hero h2 {
-            color: #214a3c;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            color: #214a3c;
-            font-weight: 700;
-        }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; color: var(--dark); text-shadow: 0 4px 12px rgba(0,0,0,0.4); font-weight: 800; }
+        .hero h2 { color: #214a3c; font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 700; }
+        .hero p { font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 800px; color: #214a3c; font-weight: 700; }
 
         .btn {
             background: linear-gradient(135deg, var(--gold), #b45309);
@@ -307,21 +198,9 @@
             background: linear-gradient(135deg, #b45309, var(--gold));
         }
 
-        /* --- GENERAL SECTION FORMATTING --- */
-        section {
-            padding: 6rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 3.5rem;
-            font-weight: 800;
-        }
-
+        /* --- GENERAL SECTION --- */
+        section { padding: 6rem 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 3.5rem; font-weight: 800; }
         .section-title::after {
             content: '';
             display: block;
@@ -332,7 +211,7 @@
             border-radius: 10px;
         }
 
-        /* --- SLIDER FOTO OTOMATIS --- */
+        /* --- SLIDER FOTO --- */
         .slider-container {
             position: relative;
             max-width: 1000px;
@@ -344,238 +223,70 @@
             border: 4px solid var(--white);
         }
 
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            display: flex;
-            align-items: flex-end;
-        }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; display: flex; align-items: flex-end; }
+        .slide.active { opacity: 1; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        .slide-caption { position: relative; z-index: 2; background: linear-gradient(transparent, rgba(6, 78, 59, 0.95)); width: 100%; padding: 3rem 2rem 2rem; color: var(--white); }
+        .slide-caption h3 { color: var(--gold-light); font-size: 1.5rem; margin-bottom: 0.5rem; }
 
-        .slide.active {
-            opacity: 1;
-        }
+        /* --- PROFIL --- */
+        .about-text p { font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; text-align: justify; color: #475569; font-style: italic; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .vision-mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; }
+        .vm-box { background: var(--white); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow); border-left: 6px solid var(--gold); transition: var(--transition); }
+        .vm-box:hover { transform: translateY(-5px); }
+        .vm-box.vision-box { background: linear-gradient(135deg, var(--primary), var(--dark)); color: var(--white); }
+        .vm-box h3 { font-size: 1.75rem; margin-bottom: 1.5rem; color: var(--primary); }
+        .vm-box.vision-box h3 { color: var(--gold-light); }
+        .vm-box.vision-box p { font-size: 1.3rem; line-height: 1.7; font-style: italic; font-weight: 500; }
+        .mission-list { list-style: none; }
+        .mission-list li { position: relative; padding-left: 2rem; margin-bottom: 1rem; font-size: 1.05rem; }
+        .mission-list li::before { content: '✔'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
 
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
+        /* --- CARDS & GRID --- */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+        .card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid rgba(6, 78, 59, 0.05); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(6, 78, 59, 0.15); }
+        .card-header { background: linear-gradient(135deg, var(--primary), var(--dark)); color: var(--white); padding: 2rem; text-align: center; }
+        .card-header h3 { font-size: 1.6rem; color: var(--gold-light); }
+        .card-body { padding: 2.5rem 2rem; }
+        .card-body ul { list-style: none; }
+        .card-body ul li { padding: 0.75rem 0; border-bottom: 1px dashed #e2e8f0; display: flex; align-items: center; gap: 10px; font-size: 1.05rem; }
+        .card-body ul li:last-child { border-bottom: none; }
+        .card-body ul li::before { content: '⭐'; }
 
-        .slide-caption {
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(transparent, rgba(6, 78, 59, 0.95));
-            width: 100%;
-            padding: 3rem 2rem 2rem;
-            color: var(--white);
-        }
+        /* --- GALLERY --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 15px; height: 250px; box-shadow: var(--shadow); border: 4px solid var(--white); transition: var(--transition); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .gallery-item:hover img { transform: scale(1.15); }
+        .gallery-overlay { position: absolute; bottom: 0; background: linear-gradient(transparent, rgba(15, 23, 42, 0.95)); width: 100%; color: var(--white); padding: 2rem 1rem 1rem; transform: translateY(100%); transition: var(--transition); text-align: center; }
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
 
-        .slide-caption h3 {
-            color: var(--gold-light);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
+        /* --- MAPS --- */
+        .maps-container { width: 100%; height: 350px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 4px solid var(--white); margin: 2rem 0; }
+        .maps-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* --- PROFIL / SELAYANG PANDANG --- */
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-            color: #475569;
-            font-style: italic;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
-            scroll-behavior: smooth;
-        }
+        /* --- CLEANED SECTIONS (Brosur, Testi, Daftar) --- */
+        .section-clean-bg { padding: 60px 15px; text-align: center; background-color: rgba(6, 78, 59, 0.03); }
+        .inner-box-card { max-width: 800px; width: 100%; margin: 0 auto; background-color: var(--white); padding: 40px 20px; border-radius: 20px; box-shadow: var(--shadow); border-top: 5px solid var(--gold); }
+        .inner-box-card h2 { color: var(--primary); margin-bottom: 10px; font-size: 26px; font-weight: 700; }
+        .inner-box-card p { color: #64748b; font-size: 1.05rem; margin-bottom: 25px; }
+        
+        .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 30px; background: linear-gradient(135deg, var(--gold), #b45309); color: var(--white); text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 50px; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); transition: all 0.3s; max-width: 100%; }
+        
+        .testi-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2rem; }
+        .testi-card { flex: 1; min-width: 280px; max-width: 450px; background-color: var(--white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); text-align: left; border-left: 5px solid var(--primary); }
+        .testi-card.gold-border { border-left-color: var(--gold); }
+        .testi-card p { color: #475569; font-style: italic; line-height: 1.6; margin-bottom: 15px; }
+        .testi-card h4 { color: var(--primary); margin: 0; font-size: 16px; font-weight: bold; }
 
-        .vision-mission-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .vm-box {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border-left: 6px solid var(--gold);
-            transition: var(--transition);
-        }
-
-        .vm-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .vm-box.vision-box {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: var(--white);
-            border-left: 6px solid var(--gold);
-        }
-
-        .vm-box h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .vm-box.vision-box h3 {
-            color: var(--gold-light);
-        }
-
-        .vm-box.vision-box p {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .mission-list {
-            list-style: none;
-        }
-
-        .mission-list li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .mission-list li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: bold;
-        }
-
-        /* --- PROGRAM SD & SMP --- */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(6, 78, 59, 0.05);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(6, 78, 59, 0.15);
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .card-header h3 {
-            font-size: 1.6rem;
-            color: var(--gold-light);
-        }
-
-        .card-body {
-            padding: 2.5rem 2rem;
-        }
-
-        .card-body ul {
-            list-style: none;
-        }
-
-        .card-body ul li {
-            padding: 0.75rem 0;
-            border-bottom: 1px dashed #e2e8f0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-        }
-
-        .card-body ul li:last-child {
-            border-bottom: none;
-        }
-
-        .card-body ul li::before {
-            content: '⭐';
-        }
-
-        /* --- GALERI & EKSTRAKURIKULER --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            height: 250px;
-            box-shadow: var(--shadow);
-            border: 4px solid var(--white);
-            transition: var(--transition);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.15);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
-            width: 100%;
-            color: var(--white);
-            padding: 2rem 1rem 1rem;
-            transform: translateY(100%);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        /* --- MAPS BOX --- */
-        .maps-container {
-            width: 100%;
-            height: 350px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 4px solid var(--white);
-            margin: 2rem 0;
-        }
-
-        .maps-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .daftar-section { padding: 80px 15px; text-align: center; background-color: #f4fbf7; }
+        .daftar-card { max-width: 650px; width: 100%; margin: 0 auto; background: var(--white); padding: 45px 20px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid #e0f2f1; }
+        .daftar-card h2 { color: var(--primary); margin-bottom: 15px; font-size: 28px; font-weight: 700; letter-spacing: 0.5px; }
+        .line-decor { width: 60px; height: 4px; background: linear-gradient(to right, var(--primary), var(--primary-light)); margin: 0 auto 25px auto; border-radius: 2px; }
+        .daftar-card p { color: #555555; margin-bottom: 35px; font-size: 16px; line-height: 1.6; }
+        .btn-daftar { display: inline-block; padding: 16px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 50px; box-shadow: 0 6px 20px rgba(6, 78, 59, 0.25); transition: transform 0.2s; max-width: 100%; }
+        .note-text { display: block; margin-top: 15px; color: #888888; font-size: 13px; font-style: italic; }
 
         /* --- FLOATING WHATSAPP BUTTON --- */
         .whatsapp-float {
@@ -596,19 +307,32 @@
             transition: var(--transition);
         }
 
-        .whatsapp-float:hover {
-            background-color: #128c7e;
-            transform: translateY(-5px);
-        }
+        .whatsapp-float:hover { background-color: #128c7e; transform: translateY(-5px); }
 
-        /* --- ANIMATION --- */
+        /* --- FOOTER --- */
+        footer { background-color: #00332c; color: #ffffff; padding: 20px 10px; text-align: center; font-size: 14px; border-top: 3px solid var(--gold); }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 20px; }
+        footer p { margin: 5px 0; color: #e0f2f1; }
+        footer a { color: #ffffff; text-decoration: none; margin: 0 10px; }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- RESPONSIVITY --- */
+        /* --- COMBINED RESPONSIVITY --- */
         @media (max-width: 968px) {
+            .top-bar { justify-content: center; padding: 0.5rem 1rem; }
+            .hamburger { display: flex; position: relative; z-index: 1010; }
+            nav { padding: 0.3rem 1rem; }
+            nav ul {
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: #043e2f; border-left: 3px solid var(--gold);
+                flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 1005;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+            }
+            nav ul.active { right: 0; }
+            nav ul li a { font-size: 1.2rem; }
             .vision-mission-grid { grid-template-columns: 1fr; }
             .slider-container { height: 300px; }
             .vm-box { padding: 2rem; }
@@ -629,9 +353,7 @@
 
     <!-- TOP BAR JAM, HARI, TANGGAL -->
     <div class="top-bar">
-        <div class="top-bar-content" id="datetime-display">
-            Memuat waktu...
-        </div>
+        <div class="top-bar-content" id="datetime-display">Memuat waktu...</div>
     </div>
 
     <!-- NAVIGASI UTAMA + HAMBURGER MENU -->
@@ -646,11 +368,8 @@
             </div>
         </div>
 
-        <!-- Tombol Garis Tiga Hamburger -->
         <button class="hamburger" id="hamburger-btn" aria-label="Buka Navigasi">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
 
         <ul id="nav-list">
@@ -676,7 +395,6 @@
     <section id="profil">
         <h2 class="section-title">Selayang Pandang</h2>
         
-        <!-- SLIDER FOTO OTOMATIS -->
         <div class="slider-container">
             <div class="slide active">
                 <img src="tahfidz.jpeg" alt="Tahfidz">
@@ -705,7 +423,6 @@
             <p><strong>PPTA Al Ishlah Furqon Demak</strong> merupakan lembaga pendidikan Islam yang berada di bawah naungan Yayasan PPTA Al Ishlah Furqon, beralamat di Jl. Kyai Turmudzi No.10, Sempalwadak, Bintoro, Demak. Dengan mengedepankan nilai-nilai Al Qur'an dan As Sunnah serta bimbingan para guru yang memiliki sanad keilmuan yang bersambung kepada para masyayikh yang telah dikenal luas, PPTA Al Ishlah Furqon berkomitmen mencetak generasi muslim yang berilmu, berakhlak mulia, berprestasi, dan berkontribusi bagi agama, bangsa, dan masyarakat.</p>
         </div>
 
-        <!-- VISI & MISI -->
         <div class="vision-mission-grid">
             <div class="vm-box vision-box">
                 <h3>Visi Sekolah</h3>
@@ -727,9 +444,7 @@
         <h2 class="section-title">Program Pendidikan</h2>
         <div class="grid-cards">
             <div class="card">
-                <div class="card-header">
-                    <h3>SD Reguler</h3>
-                </div>
+                <div class="card-header"><h3>SD Reguler</h3></div>
                 <div class="card-body">
                     <ul>
                         <li>Pendidikan Dasar Berbasis Akhlak</li>
@@ -739,9 +454,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <h3>SD Fullday</h3>
-                </div>
+                <div class="card-header"><h3>SD Fullday</h3></div>
                 <div class="card-body">
                     <ul>
                         <li>Sekolah dasar yang terintegrasi Kurikulum Nasional & Diniyyah</li>
@@ -751,9 +464,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <h3>Pesantren (Boarding)</h3>
-                </div>
+                <div class="card-header"><h3>Pesantren (Boarding)</h3></div>
                 <div class="card-body">
                     <ul>
                         <li>Sekolah dasar yang terintegrasi Kurikulum Nasional & Diniyyah</li>
@@ -789,74 +500,43 @@
     </section>
 
     <!-- BAGIAN DOWNLOAD BROSUR -->
-    <section id="brosur" style="padding: 60px 15px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
-        <div style="max-width: 800px; width: 100%; margin: 0 auto; background-color: var(--white); padding: 40px 20px; border-radius: 20px; box-shadow: var(--shadow); border-top: 5px solid var(--gold); box-sizing: border-box;">
-            
-            <h2 style="color: var(--primary); margin-bottom: 10px; font-size: 26px; font-weight: 700;">
-                Brosur & Informasi Pendaftaran
-            </h2>
-            <p style="color: #64748b; font-size: 1.05rem; margin-bottom: 25px;">
-                Dapatkan informasi lebih lengkap mengenai rincian biaya, program tahfidz, kurikulum, serta fasilitas pondok melalui brosur resmi kami.
-            </p>
-            
-            <!-- TOMBOL DOWNLOAD BROSUR -->
-            <a href="images/Brosur2026.pdf" 
-               download="Brosur_SPMB_Al_Ishlah_Furqon_2026.pdf" 
-               style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 30px; background: linear-gradient(135deg, var(--gold), #b45309); color: var(--white); text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 50px; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); transition: all 0.3s; max-width: 100%; box-sizing: border-box;">
+    <section id="brosur" class="section-clean-bg">
+        <div class="inner-box-card">
+            <h2>Brosur & Informasi Pendaftaran</h2>
+            <p>Dapatkan informasi lebih lengkap mengenai rincian biaya, program tahfidz, kurikulum, serta fasilitas pondok melalui brosur resmi kami.</p>
+            <a href="images/Brosur2026.pdf" download="Brosur_SPMB_Al_Ishlah_Furqon_2026.pdf" class="btn-download">
                📥 Download Brosur Resmi (PDF)
             </a>
-            
         </div>
     </section>
 
     <!-- TESTIMONI WALI MURID -->
-    <section id="testimoni" style="padding: 60px 15px; text-align: center; background-color: rgba(6, 78, 59, 0.03);">
+    <section id="testimoni" class="section-clean-bg">
         <div style="max-width: 1000px; margin: 0 auto;">
             <h2 class="section-title">Apa Kata Wali Murid?</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2rem;">
-                
-                <div style="flex: 1; min-width: 280px; max-width: 450px; background-color: var(--white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); text-align: left; border-left: 5px solid var(--primary); box-sizing: border-box;">
-                    <p style="color: #475569; font-style: italic; line-height: 1.6; margin-bottom: 15px;">
-                        "Alhamdulillah, sejak anak saya bersekolah di sini, hafalan Al-Qur'an dan kemandiriannya berkembang sangat pesat. Gurunya sabar dan telaten."
-                    </p>
-                    <h4 style="color: var(--primary); margin: 0; font-size: 16px; font-weight: bold;">- Wali Murid Kelas VII</h4>
+            <div class="testi-container">
+                <div class="testi-card">
+                    <p>"Alhamdulillah, sejak anak saya bersekolah di sini, hafalan Al-Qur'an dan kemandiriannya berkembang sangat pesat. Gurunya sabar dan telaten."</p>
+                    <h4>- Wali Murid Kelas VII</h4>
                 </div>
-
-                <div style="flex: 1; min-width: 280px; max-width: 450px; background-color: var(--white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); text-align: left; border-left: 5px solid var(--gold); box-sizing: border-box;">
-                    <p style="color: #475569; font-style: italic; line-height: 1.6; margin-bottom: 15px;">
-                        "Kombinasi antara kurikulum formal dan program tahfidznya sangat seimbang. Lingkungan sekolah juga sangat mendukung pembentukan akhlak anak."
-                    </p>
-                    <h4 style="color: var(--primary); margin: 0; font-size: 16px; font-weight: bold;">- Wali Murid Kelas III</h4>
+                <div class="testi-card gold-border">
+                    <p>"Kombinasi antara kurikulum formal dan program tahfidznya sangat seimbang. Lingkungan sekolah juga sangat mendukung pembentukan akhlak anak."</p>
+                    <h4>- Wali Murid Kelas III</h4>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- BAGIAN PENDAFTARAN -->
-    <section id="daftar" style="padding: 80px 15px; text-align: center; background-color: #f4fbf7;">
-        <div style="max-width: 650px; width: 100%; margin: 0 auto; background: var(--white); padding: 45px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(6, 78, 59, 0.08); border: 1px solid #e0f2f1; box-sizing: border-box;">
-            
-            <h2 style="color: var(--primary); margin-bottom: 15px; font-size: 28px; font-weight: 700; letter-spacing: 0.5px;">
-                Pendaftaran Siswa Baru
-            </h2>
-            
-            <div style="width: 60px; height: 4px; background: linear-gradient(to right, var(--primary), var(--primary-light)); margin: 0 auto 25px auto; border-radius: 2px;"></div>
-            
-            <p style="color: #555555; margin-bottom: 35px; font-size: 16px; line-height: 1.6;">
-                Silakan klik tombol di bawah ini:
-            </p>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScarLFX-wLMOQs73Qx9bNvQrijN78X9Uw4MFtsADqaL_73HVA/viewform" 
-               target="_blank" 
-               style="display: inline-block; padding: 16px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 50px; box-shadow: 0 6px 20px rgba(6, 78, 59, 0.25); transition: transform 0.2s; max-width: 100%; box-sizing: border-box;">
+    <section id="daftar" class="daftar-section">
+        <div class="daftar-card">
+            <h2>Pendaftaran Siswa Baru</h2>
+            <div class="line-decor"></div>
+            <p>Silakan klik tombol di bawah ini:</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScarLFX-wLMOQs73Qx9bNvQrijN78X9Uw4MFtsADqaL_73HVA/viewform" target="_blank" class="btn-daftar">
                👉 Buka Formulir Pendaftaran 👈
             </a>
-            
-            <span style="display: block; margin-top: 15px; color: #888888; font-size: 13px; font-style: italic;">
-                *Catatan: anda akan diarahkan ke lembar formulir pendaftaran online.
-            </span>
-            
+            <span class="note-text">*Catatan: anda akan diarahkan ke lembar formulir pendaftaran online.</span>
         </div>
     </section>
 
@@ -871,74 +551,60 @@
         </p>
     </section>
 
-    <!-- FLOATING WHATSAPP BUTTON (085338797456) -->
+    <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/6285338797456?text=Assalamu%27alaikum%20Panitia%20SPMB%20Al%20Ishlah%20Furqon" class="whatsapp-float" target="_blank">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.316 1.592 5.43 0 9.849-4.417 9.851-9.849.002-2.63-1.023-5.101-2.883-6.963-1.86-1.862-4.331-2.887-6.962-2.888-5.434 0-9.852 4.417-9.855 9.849-.001 2.055.553 3.619 1.567 5.253l-.994 3.634 3.76-.986zm11.367-7.64c-.301-.15-1.781-.879-2.056-.979-.275-.1-.475-.149-.674.15-.199.299-.772.979-.947 1.178-.175.199-.35.224-.651.075-.3-.15-1.266-.467-2.41-1.488-.89-.794-1.49-1.775-1.665-2.075-.175-.299-.019-.462.13-.611.135-.134.301-.35.451-.524.149-.175.199-.299.299-.499.1-.2.05-.374-.025-.524-.075-.15-.674-1.622-.923-2.22-.242-.583-.487-.504-.674-.514-.174-.009-.374-.01-.573-.01-.199 0-.523.074-.797.374-.275.299-1.047 1.022-1.047 2.494 0 1.472 1.071 2.892 1.221 3.092.15.199 2.109 3.22 5.108 4.512.714.308 1.272.492 1.707.63.717.228 1.37.196 1.885.119.574-.085 1.781-.728 2.03-1.429.25-.7.25-1.3.175-1.429-.075-.13-.275-.2-.575-.35z"/></svg>
         <span>Hubungi Kami</span>
     </a>
 
     <!-- FOOTER MINIMALIS -->
-    <footer style="background-color: #00332c; color: #ffffff; padding: 20px 10px; text-align: center; font-size: 14px; border-top: 3px solid var(--gold);">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 10px;">
-            <p style="margin: 5px 0; color: #e0f2f1;">
-                &copy; 2026 <strong>PPTA Al Ishlah Furqon Demak</strong>. All Rights Reserved.
-            </p>
-            <div style="margin: 5px 0;">
-                <a href="#home" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Home</a> | 
-                <a href="#profil" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Profil</a> | 
-                <a href="#program" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Program</a> | 
-                <a href="#daftar" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Daftar</a>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 <strong>PPTA Al Ishlah Furqon Demak</strong>. All Rights Reserved.</p>
+            <div>
+                <a href="#home">Home</a> | 
+                <a href="#profil">Profil</a> | 
+                <a href="#program">Program</a> | 
+                <a href="#daftar">Daftar</a>
             </div>
         </div>
     </footer>
 
-    <!-- INTERAKSI JAVASCRIPT SLIDER + HAMBURGER -->
+    <!-- INTERAKSI JAVASCRIPT -->
     <script>
-        // Driver Jam, Hari, dan Tanggal Real-time (Bahasa Indonesia)
         function updateDateTime() {
             const now = new Date();
             const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
             const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-            
-            const dayName = days[now.getDay()];
-            const dayOfMonth = now.getDate();
-            const monthName = months[now.getMonth()];
-            const year = now.getFullYear();
-            
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
             
-            const dateTimeString = `${dayName}, ${dayOfMonth} ${monthName} ${year} | Waktu: ${hours}:${minutes}:${seconds}`;
-            document.getElementById('datetime-display').innerHTML = dateTimeString;
+            document.getElementById('datetime-display').innerHTML = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()} | Waktu: ${hours}:${minutes}:${seconds}`;
         }
-
         updateDateTime();
         setInterval(updateDateTime, 1000);
 
-        // Slider Foto Otomatis
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        function nextSlide() {
+        setInterval(() => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }
-        setInterval(nextSlide, 4000);
+        }, 4000);
 
-        // Driver Hamburger Menu Garis Tiga (Aktif Sempurna)
         document.addEventListener("DOMContentLoaded", function() {
             const hamburgerBtn = document.getElementById('hamburger-btn');
             const navList = document.getElementById('nav-list');
             const navLinks = document.querySelectorAll('#nav-list a');
 
-            hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.addEventListener('click', () => {
                 hamburgerBtn.classList.toggle('active');
                 navList.classList.toggle('active');
             });
 
             navLinks.forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', () => {
                     hamburgerBtn.classList.remove('active');
                     navList.classList.remove('active');
                 });
